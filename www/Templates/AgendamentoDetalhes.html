@@ -1,0 +1,36 @@
+<div class="bar bar-header bar-dark">
+    <h1 class="title">Detalhes dos Agendamentos</h1>
+</div>
+<ion-content class="has-header has-footer">
+    <div align="center">
+        <div class="card">
+            <div class="item item-text-wrap">
+                <h3>Nome: {{cliente.Nome}}</h3>
+            </div>
+            <div class="item item-text-wrap">
+                <h3 ng-if="cliente.EnderecoAlternativo.length > 0">Endereço: {{cliente.Endereco}}</h3>
+                <h3 ng-if="cliente.EnderecoAlternativo == null">Endereço: {{cliente.Endereco}}</h3>
+            </div>
+            <div class="item item-text-wrap" ng-repeat="item in agendamentos">
+                <div ng-if="item.TipoExame == 1">
+                    <h3>Exame de Sangue: {{item.Dia}}/{{item.Mes}} às {{item.Hora}} horas</h3>
+                </div>
+                <div ng-if="item.TipoExame == 2">
+                    <h3>Pesquisa de Drogas: {{item.Dia}}/{{item.Mes}} às {{item.Hora}} horas</h3>
+                </div>
+                <div ng-if="item.TipoExame == 3">
+                    <h3>Teste de Esforço: {{item.Dia}}/{{item.Mes}} às {{item.Hora}} horas</h3>
+                </div>
+                <div ng-if="item.TipoExame == 4">
+                    <h3>Tele Entrevista: {{item.Dia}}/{{item.Mes}} às {{item.Hora}} horas</h3>
+                </div>
+            </div>
+        </div>
+        <button class="button button-small button-calm" ng-click="goBack(cliente)">Voltar</button>
+    </div>   
+    <br/>
+    
+</ion-content>
+<div ng-click="goHome();" class="bar bar-footer bar-dark">
+    <div class="title">Home</div>
+</div>

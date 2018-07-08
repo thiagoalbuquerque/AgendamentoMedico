@@ -1,0 +1,121 @@
+<div class="bar bar-header bar-dark">
+    <h1 class="title">Detalhes do Cliente</h1>
+</div>
+<ion-content class="has-header has-footer">
+    <div align="center">
+        <div class="card">
+            <div class="item item-text-wrap">
+                <h3>Nome: {{cliente.Nome}}</h3>
+            </div>
+            <div class="item item-text-wrap">
+                <h3>Endereço: {{cliente.Endereco}}</h3>
+            </div>
+            <div class="item item-text-wrap" ng-if="!cliente.Check">
+                <h3 ng-if="cliente.EnderecoAlternativo.length > 0" ng-show="!editing">Endereço 2: {{cliente.EnderecoAlternativo}}</h3>
+                <h3 ng-if="cliente.EnderecoAlternativo == null" ng-show="!editing">Endereço 2: Não cadastrado</h3>
+                <div ng-show="editing">
+                    <label class="item item-input">
+                        <input type="text" placeholder="Endereço alternativo" ng-model="cliente.EnderecoAlternativo">
+                    </label>
+                    <br/>
+                    <button class="button button-balanced button-small" ng-click="EnderecoAlternativo()" type="submit">Salvar</button>
+                    <button class="button button-assertive button-small" ng-click="editing = false;">Cancelar</button>
+                </div>
+                <br/>
+                <button class="button button-positive button-small icon ion-edit" ng-click="editing = true;" />
+                <ion-icon name="create"></ion-icon>
+            </div>
+        </div>
+
+        <h3>Exames a serem realizados</h3>
+        <div class="card" ng-if="!cliente.ExameSangue && !cliente.ExameToxicologico && !cliente.ExameEsforco && !cliente.ExameEntrevista">
+            <div class="item item-text-wrap">
+                Cliente não tem exame pendente!
+            </div>
+        </div>
+
+        <div class="card" ng-if="cliente.ExameSangue || cliente.ExameToxicologico || cliente.ExameEsforco || cliente.ExameEntrevista">
+            <div class="item item-text-wrap" ng-if="cliente.ExameSangue">
+                <h3>Exame de Sangue</h3>
+                <button class="button button-assertive button-small" ng-if="!ExameSangue" ng-click="agendar(1,cliente)"> Agendar exame</button>
+                <div ng-if="ExameSangue">
+                    <div ng-if="sangueHora >= 0">
+                        Exame já foi marcado!
+                        <br>
+                        <button class="button button-balanced button-small" ng-click="remarcar(1)">Remarcar</button>
+                        <br />
+                        <br />
+                        <button ng-if="sangueHora > 48" class="button button-stable button-small" ng-click="cancelar(1)">Cancelar</button>
+                    </div>
+                    <div ng-if="sangueHora < 0">
+                        Exame já realizado!
+                    </div>
+                </div>
+            </div>
+            <div class="item item-text-wrap" ng-if="cliente.ExameEsforco">
+                <h3>Exame de Esforço</h3>
+                <button class="button button-assertive button-small" ng-if="!ExameEsforco" ng-click="agendar(3,cliente)"> Agendar exame</button>
+                <div ng-if="ExameEsforco">
+                    <div ng-if="esforcoHora >= 0">
+                        Exame já foi marcado!
+                        <br>
+                        <button class="button button-balanced button-small" ng-click="remarcar(3)">Remarcar</button>
+                        <br />
+                        <br />
+                        <button ng-if="esforcoHora > 48" class="button button-stable button-small" ng-click="cancelar(3)">Cancelar</button>
+                    </div>
+                    <div ng-if="esforcoHora < 0">
+                        Exame já realizado!
+                    </div>
+                </div>
+            </div>
+            <div class="item item-text-wrap" ng-if="cliente.ExameToxicologico">
+                <h3>Pesquisa de Drogas</h3>
+                <button class="button button-assertive button-small" ng-if="!ExameToxicologico" ng-click="agendar(2,cliente)"> Agendar exame</button>
+                <div ng-if="ExameToxicologico">
+                    <div ng-if="drogasHora >= 0">
+                        Exame já foi marcado!
+                        <br>
+                        <button class="button button-balanced button-small" ng-click="remarcar(2)">Remarcar</button>
+                        <br />
+                        <br />
+                        <button ng-if="drogasHora > 48" class="button button-stable button-small" ng-click="cancelar(2)">Cancelar</button>
+                    </div>
+                    <div ng-if="drogasHora < 0">
+                        Exame já realizado!
+                    </div>
+                </div>
+            </div>
+            <div class="item item-text-wrap" ng-if="cliente.ExameEntrevista">
+                <h3>Tele Entrevista</h3>
+                <button class="button button-assertive button-small" ng-if="!ExameEntrevista" ng-click="agendar(4,cliente)"> Agendar exame</button>
+                <div ng-if="ExameEntrevista">
+                    <div ng-if="entrevistaHora >= 0">
+                        Exame já foi marcado!
+                        <br>
+                        <button class="button button-balanced button-small" ng-click="remarcar(4)">Remarcar</button>
+                        <br />
+                        <br />
+                        <button ng-if="entrevistaHora > 48" class="button button-stable button-small" ng-click="cancelar(4)">Cancelar</button>
+                    </div>
+                    <div ng-if="entrevistaHora < 0">
+                        Exame já realizado!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <button class="button button-small button-positive" ng-click="Detalhes(cliente)">Detalhes dos agendamentos</button>
+        <br />
+        <br />
+
+        <button class="button button-small button-calm" ng-click="goBack()">Voltar</button>
+
+    </div>
+    <br/>
+    
+</ion-content>
+<div ng-click="goHome();" class="bar bar-footer bar-dark">
+    <div class="title">Home</div>
+</div>

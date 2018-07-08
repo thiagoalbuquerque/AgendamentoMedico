@@ -1,0 +1,43 @@
+<div class="bar bar-header bar-positive">
+	<h1 class="title">Agendamento Médico</h1>
+</div>
+<ion-content class="has-header has-footer">
+    <div align="center">
+        <h4>Entre com o nome do cliente:</h4>
+        <div class="list list-inset">
+            <label class="item item-input">
+              <i class="icon ion-search placeholder-icon"></i>
+              <input type="text" placeholder="Digite o nome" ng-model="nome" ng-change="buscar(nome)">
+            </label>
+          </div>
+    </div>
+    <br/>
+    <ion-list>
+        <ion-item ng-repeat="item in list" ng-if="item.Nome.toLowerCase().indexOf(nome.toLowerCase()) !== (-1) || !nome">
+            <div ng-if="!item.Check">                    
+                <h2 style="color: red">{{item.Nome}}</h2>
+                <div class="alert alert-danger col" role="alert" style="color: red" style="width: 300px;">
+                    Cliente tem exame(s) pendente(s)!
+                </div>
+                <br/>
+                <div align="center">
+                    <button class="button button-assertive" ng-click="showDetails(item)"> Agendar exame(s)</button>
+                </div>
+            </div>
+            <div ng-if="item.Check">                    
+                <h2 style="color: limegreen">{{item.Nome}}</h2>
+                <div class="alert alert-success col" style="color: limegreen" role="alert" style="width: 300px;">
+                    Cliente não tem exames pendentes!
+                </div>
+                <br/>
+                <div align="center">
+                    <button class="button button-balanced" ng-click="showDetails(item)">Ver detalhes</button>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+    <br/>
+    <!-- <footer align="center">
+		<p>Desenvolvido por Thiago Albuquerque</p>
+	</footer> -->
+</ion-content>
