@@ -230,7 +230,7 @@ app.controller('ExameEntrevistaCtrl', function ($scope, ApiService, $state, $ion
 
     $scope.agendar = function (id, dia, mes, ano, hora) {
         agendamento = {
-            IdSegurado: id,
+            IdCliente: id,
             TipoExame: 4,
             Dia: dia,
             Mes: mes,

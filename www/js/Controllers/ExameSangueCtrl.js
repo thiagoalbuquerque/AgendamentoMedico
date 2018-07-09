@@ -1,4 +1,4 @@
-app.controller('ExameSangueCtrl', function ($scope, ApiService, $state, $ionicHistory, AppService) {
+app.controller('ExameSangueCtrl', function ($scope, ApiService, $state, $ionicHistory, $ionicLoading , AppService) {
     $scope.cliente = AppService.pull('cliente');
     $scope.date = new Date();
     this.isOpen = false;
@@ -231,8 +231,8 @@ app.controller('ExameSangueCtrl', function ($scope, ApiService, $state, $ionicHi
     }
 
     $scope.agendar = function (id, dia, mes, ano, hora) {
-        agendamento = {
-            IdSegurado: id,
+            agendamento = {
+            IdCliente: id,
             TipoExame: 1,
             Dia: dia,
             Mes: mes,
@@ -244,6 +244,7 @@ app.controller('ExameSangueCtrl', function ($scope, ApiService, $state, $ionicHi
             template: '<ion-spinner icon="lines" class="spinner-energized"></ion-spinner> <br/>waiting...'                
         });
         ApiService.addAgendamento(agendamento).then(response => {
+            console.log(agendamento);
             AppService.push('cliente', $scope.cliente);
             $state.go("AgendamentoDetalhes");
         }).finally(final => {

@@ -13,10 +13,12 @@ app.controller('DetalhesCtrl', function ($scope, $ionicHistory, $state, AppServi
 
     $scope.detalhes = function (item) {
         AppService.push('cliente', item);
+
         $state.go('AgendamentoDetalhes');
+
     }
 
-    $scope.endereco2 = function () {
+    $scope.EnderecoAlternativo = function () {
         //console.log("obj param: " + $scope.cliente)
         ApiService.updateClient($scope.cliente.Id, $scope.cliente).then(response => {
             //console.log(response);

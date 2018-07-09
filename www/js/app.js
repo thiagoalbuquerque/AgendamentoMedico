@@ -37,31 +37,31 @@ var app = angular.module('starter', ['ionic'])
       controller: 'DetalhesCtrl',
       templateUrl: 'Templates/Detalhes.html'
     })
-    .state('sangue', {
+    .state('ExameSangue', {
       url: '/sangue',
       cache: false,
       controller: 'ExameSangueCtrl',
       templateUrl: 'Templates/ExameSangue.html'
     })
-    .state('esforco', {
+    .state('ExameEsforco', {
       url: '/esforco',
       cache: false,
       controller: 'ExameEsforcoCtrl',
       templateUrl: 'Templates/ExameEsforco.html'
     })
-    .state('drogas', {
+    .state('ExameToxicologico', {
       url: '/drogas',
       cache: false,
       controller: 'ExameToxicologicoCtrl',
       templateUrl: 'Templates/ExameToxicologico.html'
     })
-    .state('entrevista', {
+    .state('ExameEntrevista', {
       url: '/entrevista',
       cache: false,
       controller: 'ExameEntrevistaCtrl',
       templateUrl: 'Templates/ExameEntrevista.html'
     })
-    .state('agendamentoDetalhes', {
+    .state('AgendamentoDetalhes', {
       url: '/agendamentoDetalhes',
       cache: false,
       controller: 'AgendamentoDetalhesCtrl',

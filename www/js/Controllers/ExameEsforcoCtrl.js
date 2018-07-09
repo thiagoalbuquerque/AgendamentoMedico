@@ -1,4 +1,4 @@
-app.controller('ExameEsforcoCtrl', function ($scope, ApiService, $state, $ionicHistory,AppService) {
+app.controller('ExameEsforcoCtrl', function ($scope, ApiService, $state, $ionicHistory, $ionicLoading, AppService) {
     $scope.cliente = AppService.pull('cliente');
     $scope.date = new Date();
     this.isOpen = false;
@@ -230,7 +230,7 @@ app.controller('ExameEsforcoCtrl', function ($scope, ApiService, $state, $ionicH
 
     $scope.agendar = function (id, dia, mes, ano, hora) {
         agendamento = {
-            IdSegurado: id,
+            IdCliente: id,
             TipoExame: 3,
             Dia: dia,
             Mes: mes,

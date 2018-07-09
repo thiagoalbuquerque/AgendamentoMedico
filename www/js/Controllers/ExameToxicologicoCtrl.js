@@ -232,7 +232,7 @@ app.controller('ExameToxicologicoCtrl', function ($scope, ApiService, $state, $i
 
     $scope.agendar = function (id, dia, mes, ano, hora) {
         agendamento = {
-            IdSegurado: id,
+            IdCliente: id,
             TipoExame: 2,
             Dia: dia,
             Mes: mes,

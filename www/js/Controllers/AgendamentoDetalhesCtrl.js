@@ -18,6 +18,7 @@ app.controller('AgendamentoDetalhesCtrl', function ($scope, ApiService, $state, 
     ApiService.getAgendamentoByClient($scope.cliente.Id).then(response => {
         var agendamentos = response.data;
         $scope.agendamentos = agendamentos;
+        console.log(agendamentos);
         for (i in agendamentos) {
             switch (agendamentos[i].TipoExame) {
                 case 1:
