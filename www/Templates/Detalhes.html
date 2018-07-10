@@ -1,4 +1,4 @@
-<div class="bar bar-header bar-dark">
+<div class="bar bar-header bar-positive">
     <h1 class="title">Detalhes do Cliente</h1>
 </div>
 <ion-content class="has-header has-footer">
@@ -11,8 +11,8 @@
                 <h3>Endereço: {{cliente.Endereco}}</h3>
             </div>
             <div class="item item-text-wrap" ng-if="!cliente.Check">
-                <h3 ng-if="cliente.EnderecoAlternativo.length > 0" ng-show="!editing">Endereço 2: {{cliente.EnderecoAlternativo}}</h3>
-                <h3 ng-if="cliente.EnderecoAlternativo == null" ng-show="!editing">Endereço 2: Não cadastrado</h3>
+                <h3 ng-if="cliente.EnderecoAlternativo.length > 0" ng-show="!editing">Endereço Alternativo: {{cliente.EnderecoAlternativo}}</h3>
+                <h3 ng-if="cliente.EnderecoAlternativo == null" ng-show="!editing">Endereço Alternativo: Não cadastrado</h3>
                 <div ng-show="editing">
                     <label class="item item-input">
                         <input type="text" placeholder="Endereço alternativo" ng-model="cliente.EnderecoAlternativo">
@@ -116,6 +116,6 @@
     <br/>
     
 </ion-content>
-<div ng-click="goHome();" class="bar bar-footer bar-dark">
-    <div class="title">Home</div>
+<div ng-click="goHome();" class="bar bar-footer bar-positive">
+    <div class="title">Retornar para a Home</div>
 </div>
