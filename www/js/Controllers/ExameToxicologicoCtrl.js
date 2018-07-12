@@ -241,7 +241,7 @@ app.controller('ExameToxicologicoCtrl', function ($scope, ApiService, $state, $i
             IdPrestador: 2
         }
         $ionicLoading.show({
-            template: '<ion-spinner icon="lines" class="spinner-energized"></ion-spinner> <br/>waiting...'
+            template: '<ion-spinner icon="lines" class="spinner-energized"></ion-spinner> <br/>Carregando...'
         });
         ApiService.addAgendamento(agendamento).then(response => {
             AppService.push('cliente', $scope.cliente);

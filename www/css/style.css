@@ -1,1 +1,10 @@
 /* Empty. Add your own CSS if you like */
+.bar-positive, .button-positive, .button-positive a{
+    background-color: #B00020 !important;
+
+}
+
+.button-clear {
+    color: black !important;    
+    background-color: white !important;
+}

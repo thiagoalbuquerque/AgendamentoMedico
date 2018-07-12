@@ -239,7 +239,7 @@ app.controller('ExameEntrevistaCtrl', function ($scope, ApiService, $state, $ion
             IdPrestador: 2
         }
         $ionicLoading.show({
-            template: '<ion-spinner icon="lines" class="spinner-energized"></ion-spinner> <br/>waiting...'
+            template: '<ion-spinner icon="lines" class="spinner-energized"></ion-spinner> <br/>Carregando...'
         });
         ApiService.addAgendamento(agendamento).then(response => {
             AppService.push('cliente', $scope.cliente);

@@ -4,10 +4,16 @@
 <ion-content class="has-header has-footer">
     <div align="center">
         <br/>
-        <h3><i class="icon ion-person-stalker"> {{cliente.Nome}}</i></h3>
-        <br/>
-        <input type="date" ng-model="date" min="2017-07-04" ng-change="getHorarios(date)" />
-        <br/>
+        <h3>
+            <i class="icon ion-person-stalker"> {{cliente.Nome}}</i>
+        </h3>
+        <!-- <input type="date" ng-model="date" ng-change="getHorarios(date)" /> -->
+        <ion-list>
+            <div class="item" title="'Escolha a data'" ion-datetime-picker date="true" ng-change="getHorarios(date)" only-valid="{'after': 'today', 'inclusive': true}"
+                ng-model="date">
+                <p>Clique aqui para alterar a data: {{date | date: "dd-MM-yyyy"}}</p>
+            </div>
+        </ion-list>
         <div ng-show="horarios">
             <ul>
                 <ui ng-if="oito">

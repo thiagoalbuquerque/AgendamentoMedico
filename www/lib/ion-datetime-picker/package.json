@@ -1,0 +1,59 @@
+{
+  "_from": "ion-datetime-picker",
+  "_id": "ion-datetime-picker@0.5.2",
+  "_inBundle": false,
+  "_integrity": "sha1-mYJr8i9CisCRlefmtTQJG2875ko=",
+  "_location": "/ion-datetime-picker",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "ion-datetime-picker",
+    "name": "ion-datetime-picker",
+    "escapedName": "ion-datetime-picker",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/ion-datetime-picker/-/ion-datetime-picker-0.5.2.tgz",
+  "_shasum": "99826bf22f428ac09195e7e6b534091b6f3be64a",
+  "_spec": "ion-datetime-picker",
+  "_where": "C:\\Users\\ThiagoAlbuquerqueAlb\\Documents\\AgendamentoMedico",
+  "author": {
+    "name": "https://github.com/katemihalikova, kate@katemihalikova.cz"
+  },
+  "bugs": {
+    "url": "https://github.com/katemihalikova/ion-datetime-picker/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "Date and/or time picker for awesome ionic framework",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-iife": "^0.1.0",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-ng-html2js": "^0.2.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-uglify": "^1.4.1"
+  },
+  "files": [
+    "release"
+  ],
+  "homepage": "https://github.com/katemihalikova/ion-datetime-picker#readme",
+  "license": "MIT",
+  "main": "release/ion-datetime-picker.min.js",
+  "name": "ion-datetime-picker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katemihalikova/ion-datetime-picker.git"
+  },
+  "scripts": {},
+  "version": "0.5.2"
+}
