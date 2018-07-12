@@ -22,7 +22,7 @@ app.controller('ExameEntrevistaCtrl', function ($scope, ApiService, $state, $ion
         $state.go("Home")
     }
 
-    $scope.goBack = function(cliente){
+    $scope.goBack = function (cliente) {
         AppService.push('cliente', cliente);
         $ionicHistory.goBack();
     }
@@ -31,7 +31,7 @@ app.controller('ExameEntrevistaCtrl', function ($scope, ApiService, $state, $ion
     var data = new Date;
     var dia = data.getDate();
     var mes = data.getMonth() + 1;
-    var match = [];    
+    var match = [];
     ApiService.getAgendamentos().then(response => {
         var res = response.data;
         for (i in res) {
@@ -135,7 +135,7 @@ app.controller('ExameEntrevistaCtrl', function ($scope, ApiService, $state, $ion
         // console.log((((data) - Date.parse($scope.minDate)) / (3600000)) + data.getHours());
         // console.log(data);
         // console.log($scope.minDate);
-        if(((data - $scope.minDate) / (3600000)) + data.getHours() >= 0){       
+        if (((data - $scope.minDate) / (3600000)) + data.getHours() >= 0) {
             ApiService.getAgendamentos().then(response => {
                 var res = response.data;
                 for (i in res) {
@@ -143,7 +143,7 @@ app.controller('ExameEntrevistaCtrl', function ($scope, ApiService, $state, $ion
                         if (res[i].Dia == dia) {
                             if (res[i].Mes == mes) {
                                 match.push(res[i]);
-    
+
                             }
                         }
                     }
@@ -189,7 +189,7 @@ app.controller('ExameEntrevistaCtrl', function ($scope, ApiService, $state, $ion
                             break;
                     }
                 }
-                if(ano ===  $scope.minDate.getFullYear() && mes === ($scope.minDate.getMonth()+1) && dia === $scope.minDate.getDate()){
+                if (ano === $scope.minDate.getFullYear() && mes === ($scope.minDate.getMonth() + 1) && dia === $scope.minDate.getDate()) {
                     //console.log('igual');
                     if (data.getHours() >= 8) {
                         $scope.oito = false;
@@ -221,10 +221,10 @@ app.controller('ExameEntrevistaCtrl', function ($scope, ApiService, $state, $ion
                 }
                 $scope.horarios = true;
             })
-        }else{
+        } else {
             $scope.horarios = false;
         }
-       
+
 
     }
 
@@ -239,7 +239,7 @@ app.controller('ExameEntrevistaCtrl', function ($scope, ApiService, $state, $ion
             IdPrestador: 2
         }
         $ionicLoading.show({
-            template: '<ion-spinner icon="lines" class="spinner-energized"></ion-spinner> <br/>waiting...'                
+            template: '<ion-spinner icon="lines" class="spinner-energized"></ion-spinner> <br/>waiting...'
         });
         ApiService.addAgendamento(agendamento).then(response => {
             AppService.push('cliente', $scope.cliente);

@@ -16,21 +16,21 @@
                     <h3>Exame de Sangue: {{item.Dia}}/{{item.Mes}} às {{item.Hora}} horas</h3>
                 </div>
                 <div ng-if="item.TipoExame == 2">
-                    <h3>Pesquisa de Drogas: {{item.Dia}}/{{item.Mes}} às {{item.Hora}} horas</h3>
+                    <h3>Exame Toxicologico: {{item.Dia}}/{{item.Mes}} às {{item.Hora}} horas</h3>
                 </div>
                 <div ng-if="item.TipoExame == 3">
-                    <h3>Teste de Esforço: {{item.Dia}}/{{item.Mes}} às {{item.Hora}} horas</h3>
+                    <h3>Exame de Esforço: {{item.Dia}}/{{item.Mes}} às {{item.Hora}} horas</h3>
                 </div>
                 <div ng-if="item.TipoExame == 4">
                     <h3>Tele Entrevista: {{item.Dia}}/{{item.Mes}} às {{item.Hora}} horas</h3>
                 </div>
             </div>
         </div>
-        <button class="button button-small button-calm" ng-click="goBack(cliente)">Voltar</button>
-    </div>   
+        <a class="button icon-left ion-chevron-left button-clear button-positive" ng-click="goBack(cliente)">Voltar</a>
+    </div>
     <br/>
-    
+
 </ion-content>
 <div ng-click="goHome();" class="bar bar-footer bar-positive">
-    <div class="title">Retornar para aHome</div>
+    <div class="title">Retornar para a Home</div>
 </div>

@@ -7,8 +7,8 @@ app.controller('ExameToxicologicoCtrl', function ($scope, ApiService, $state, $i
         $scope.date.getMonth(),
         $scope.date.getDate()
     );
-    
-   
+
+
     $scope.oito = true;
     $scope.nove = true;
     $scope.dez = true;
@@ -23,7 +23,7 @@ app.controller('ExameToxicologicoCtrl', function ($scope, ApiService, $state, $i
         $state.go("Home")
     }
 
-    $scope.goBack = function(cliente){
+    $scope.goBack = function (cliente) {
         AppService.push('cliente', cliente);
         $ionicHistory.goBack();
     }
@@ -136,7 +136,7 @@ app.controller('ExameToxicologicoCtrl', function ($scope, ApiService, $state, $i
         // console.log((((data) - Date.parse($scope.minDate)) / (3600000)) + data.getHours());
         // console.log(data);
         // console.log($scope.minDate);
-        if(((data - $scope.minDate) / (3600000)) + data.getHours() >= 0){           
+        if (((data - $scope.minDate) / (3600000)) + data.getHours() >= 0) {
             ApiService.getAgendamentos().then(response => {
                 var res = response.data;
                 for (i in res) {
@@ -144,7 +144,7 @@ app.controller('ExameToxicologicoCtrl', function ($scope, ApiService, $state, $i
                         if (res[i].Dia == dia) {
                             if (res[i].Mes == mes) {
                                 match.push(res[i]);
-    
+
                             }
                         }
                     }
@@ -190,8 +190,8 @@ app.controller('ExameToxicologicoCtrl', function ($scope, ApiService, $state, $i
                             break;
                     }
                 }
-              
-                if(ano ===  $scope.minDate.getFullYear() && mes === ($scope.minDate.getMonth()+1) && dia === $scope.minDate.getDate()){
+
+                if (ano === $scope.minDate.getFullYear() && mes === ($scope.minDate.getMonth() + 1) && dia === $scope.minDate.getDate()) {
                     //console.log('igual');
                     if (data.getHours() >= 8) {
                         $scope.oito = false;
@@ -223,10 +223,10 @@ app.controller('ExameToxicologicoCtrl', function ($scope, ApiService, $state, $i
                 }
                 $scope.horarios = true;
             })
-        }else{
+        } else {
             $scope.horarios = false;
         }
-        
+
 
     }
 
@@ -241,7 +241,7 @@ app.controller('ExameToxicologicoCtrl', function ($scope, ApiService, $state, $i
             IdPrestador: 2
         }
         $ionicLoading.show({
-            template: '<ion-spinner icon="lines" class="spinner-energized"></ion-spinner> <br/>waiting...'                
+            template: '<ion-spinner icon="lines" class="spinner-energized"></ion-spinner> <br/>waiting...'
         });
         ApiService.addAgendamento(agendamento).then(response => {
             AppService.push('cliente', $scope.cliente);

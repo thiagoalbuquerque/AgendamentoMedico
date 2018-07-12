@@ -1,33 +1,52 @@
 <div class="bar bar-header bar-positive">
-    <h1 class="title">Pesquisa de Drogas</h1>
+    <h1 class="title">Exame Toxicológico</h1>
 </div>
 <ion-content class="has-header has-footer">
     <div align="center">
-        <h2>Cliente: {{cliente.Nome}}</h2>
         <br/>
-        <input type="date" ng-model="date" min="2017-07-04" ng-change="getHorarios(date)"/>
-        <br/>         
+        <h3><i class="icon ion-person-stalker"> {{cliente.Nome}}</i></h3>
+        <br/>
+        <input type="date" ng-model="date" min="2017-07-04" ng-change="getHorarios(date)" />
+        <br/>
         <div ng-show="horarios">
             <ul>
-                <ui ng-if="oito"><button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 8)">08:00</button></ui>
-                <ui ng-if="nove"><button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 9)">09:00</button></ui>
-                <ui ng-if="dez"><button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 10)">10:00</button></ui>
-                <ui ng-if="onze"><button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 11)">11:00</button></ui>
-                <ui ng-if="doze"><button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 12)">12:00</button></ui>
-                <ui ng-if="treze"><button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 13)">13:00</button></ui>
-                <ui ng-if="quatorze"><button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 14)">14:00</button></ui>
-                <ui ng-if="quinze"><button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 15)">15:00</button></ui>
-                <ui ng-if="dezesseis"><button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 16)">16:00</button></ui>
+                <ui ng-if="oito">
+                    <button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 8)">08:00</button>
+                </ui>
+                <ui ng-if="nove">
+                    <button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 9)">09:00</button>
+                </ui>
+                <ui ng-if="dez">
+                    <button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 10)">10:00</button>
+                </ui>
+                <ui ng-if="onze">
+                    <button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 11)">11:00</button>
+                </ui>
+                <ui ng-if="doze">
+                    <button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 12)">12:00</button>
+                </ui>
+                <ui ng-if="treze">
+                    <button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 13)">13:00</button>
+                </ui>
+                <ui ng-if="quatorze">
+                    <button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 14)">14:00</button>
+                </ui>
+                <ui ng-if="quinze">
+                    <button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 15)">15:00</button>
+                </ui>
+                <ui ng-if="dezesseis">
+                    <button class="button button-clear button-positive" ng-click="agendar(cliente.Id, date.getDate(), date.getMonth() + 1, date.getFullYear(), 16)">16:00</button>
+                </ui>
             </ul>
         </div>
         <div ng-show="!horarios">
             <p>Dia Indisponível</p>
         </div>
         <br/>
-        <button class="button button-small button-calm" ng-click="goBack(cliente)">Voltar</button>
+        <a class="button icon-left ion-chevron-left button-clear button-positive" ng-click="goBack(cliente)">Voltar</a>
     </div>
     <br/>
-   
+
 </ion-content>
 <div ng-click="goHome();" class="bar bar-footer bar-positive">
     <div class="title">Retornar para a Home</div>

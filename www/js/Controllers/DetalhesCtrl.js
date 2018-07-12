@@ -34,7 +34,7 @@ app.controller('DetalhesCtrl', function ($scope, $ionicHistory, $state, AppServi
                 ApiService.removeAgendamento(ag[i].Id).then(response => {
                     //console.log('removeu');
                     AppService.push('cliente', $scope.cliente);
-                     $state.go("AgendamentoDetalhes");
+                    $state.go("AgendamentoDetalhes");
                 })
             }
         }
@@ -157,7 +157,7 @@ app.controller('DetalhesCtrl', function ($scope, $ionicHistory, $state, AppServi
             //console.log(ok);
             if (ok) {
                 $scope.cliente.Check = true;
-                ApiService.updateClient($routeParams.id, $scope.cliente).then(response => {
+                ApiService.updateClient($scope.cliente.Id, $scope.cliente).then(response => {
                     console.log('editou');
                 })
 

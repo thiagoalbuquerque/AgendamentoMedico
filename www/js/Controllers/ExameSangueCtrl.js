@@ -1,4 +1,4 @@
-app.controller('ExameSangueCtrl', function ($scope, ApiService, $state, $ionicHistory, $ionicLoading , AppService) {
+app.controller('ExameSangueCtrl', function ($scope, ApiService, $state, $ionicHistory, $ionicLoading, AppService) {
     $scope.cliente = AppService.pull('cliente');
     $scope.date = new Date();
     this.isOpen = false;
@@ -22,7 +22,7 @@ app.controller('ExameSangueCtrl', function ($scope, ApiService, $state, $ionicHi
         $state.go("Home")
     }
 
-    $scope.goBack = function(cliente){
+    $scope.goBack = function (cliente) {
         AppService.push('cliente', cliente);
         $ionicHistory.goBack();
     }
@@ -136,7 +136,7 @@ app.controller('ExameSangueCtrl', function ($scope, ApiService, $state, $ionicHi
         // console.log((((data) - Date.parse($scope.minDate)) / (3600000)) + data.getHours());
         // console.log(data);
         // console.log($scope.minDate);
-        if(((data - $scope.minDate) / (3600000)) + data.getHours() >= 0){       
+        if (((data - $scope.minDate) / (3600000)) + data.getHours() >= 0) {
             ApiService.getAgendamentos().then(response => {
                 var res = response.data;
                 for (i in res) {
@@ -144,7 +144,7 @@ app.controller('ExameSangueCtrl', function ($scope, ApiService, $state, $ionicHi
                         if (res[i].Dia == dia) {
                             if (res[i].Mes == mes) {
                                 match.push(res[i]);
-    
+
                             }
                         }
                     }
@@ -190,7 +190,7 @@ app.controller('ExameSangueCtrl', function ($scope, ApiService, $state, $ionicHi
                             break;
                     }
                 }
-                if(ano ===  $scope.minDate.getFullYear() && mes === ($scope.minDate.getMonth()+1) && dia === $scope.minDate.getDate()){
+                if (ano === $scope.minDate.getFullYear() && mes === ($scope.minDate.getMonth() + 1) && dia === $scope.minDate.getDate()) {
                     //console.log('igual');
                     if (data.getHours() >= 8) {
                         $scope.oito = false;
@@ -222,16 +222,16 @@ app.controller('ExameSangueCtrl', function ($scope, ApiService, $state, $ionicHi
                 }
                 $scope.horarios = true;
             })
-        }else{
+        } else {
             $scope.horarios = false;
         }
         //console.log(data.getFullYear());
-        
+
 
     }
 
     $scope.agendar = function (id, dia, mes, ano, hora) {
-            agendamento = {
+        agendamento = {
             IdCliente: id,
             TipoExame: 1,
             Dia: dia,
@@ -241,7 +241,7 @@ app.controller('ExameSangueCtrl', function ($scope, ApiService, $state, $ionicHi
             IdPrestador: 2
         }
         $ionicLoading.show({
-            template: '<ion-spinner icon="lines" class="spinner-energized"></ion-spinner> <br/>waiting...'                
+            template: '<ion-spinner icon="lines" class="spinner-energized"></ion-spinner> <br/>waiting...'
         });
         ApiService.addAgendamento(agendamento).then(response => {
             console.log(agendamento);
